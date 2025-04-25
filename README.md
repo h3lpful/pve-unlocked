@@ -17,7 +17,7 @@ Since this is done with docker you need not worry about any other dependancies o
 
 # Build DEB Packages
 ```bash
-git clone https://github.com/lillypad/pve-qemu-unlocked.git
+git clone https://github.com/h3lpful/pve-qemu-unlocked.git
 cd pve-qemu-unlocked/
 make
 ```
