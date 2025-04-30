@@ -56,10 +56,22 @@ RUN apt-get install -y make \
     python3-sphinx-rtd-theme \
     python3-venv
 
-RUN mkdir -p /opt/
-WORKDIR /opt/
-RUN git clone https://github.com/proxmox/pve-qemu.git
-WORKDIR /opt/pve-qemu/
-RUN git checkout 50717bf
-RUN sed -i '/.*--target-list=.*/d' debian/rules
-RUN make -j8
+RUN DEBIAN_FRONTEND=noninteractive apt install -y \
+    rsync \
+    libpve-common-perl \
+    libpve-access-control \
+    pve-doc-generator \
+    libyaml-libyaml-perl \
+    libjson-perl \
+    libspice-server-dev \
+    libqb-dev \
+    librados-dev \
+    libcephfs-dev \
+    libzstd-dev
+# RUN mkdir -p /opt/
+# WORKDIR /opt/
+# RUN git clone https://github.com/proxmox/pve-qemu.git
+# WORKDIR /opt/pve-qemu/
+# RUN git checkout 50717bf
+# RUN sed -i '/.*--target-list=.*/d' debian/rules
+# RUN make -j8
